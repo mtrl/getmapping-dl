@@ -24,8 +24,9 @@ y_inc = 53
 
 # pause so we don't break stuff
 wait = 0.5
-
-url = "https://www2.getmapping.com/Webshop/web/CommonPages/Main/IEDPreview.aspx?Dataset=2012_UK_125mm&ResolutionInMetres=0.1&CentreX=[[X]]&CentreY=[[Y]]"
+dataset = 'MillenniumMap'
+#dataset = '2012_UK_125mm'
+url = "https://www2.getmapping.com/Webshop/web/CommonPages/Main/IEDPreview.aspx?Dataset=" + dataset + "&ResolutionInMetres=0.1&CentreX=[[X]]&CentreY=[[Y]]"
 
 cols = 0
 rows = 0
