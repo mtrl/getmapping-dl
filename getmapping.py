@@ -5,14 +5,19 @@ import os
 from PIL import Image
 
 images_dir = "getmapping"
-start_x = 343744
-end_x = 344044
-start_y = 326894
-end_y = 326594
+# start and end coordinates
+# x from left to right incrementing
+start_x = 343544
+end_x = 344244
+# x from top to bottom decrement
+start_y = 327094
+end_y = 326294
+
 
 x_inc = 100
 y_inc = 53
 
+# pause so we don't break stuff
 wait = 0.5
 
 url = "https://www2.getmapping.com/Webshop/web/CommonPages/Main/IEDPreview.aspx?Dataset=2012_UK_125mm&ResolutionInMetres=0.1&CentreX=[[X]]&CentreY=[[Y]]"
