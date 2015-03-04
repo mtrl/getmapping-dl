@@ -1,6 +1,7 @@
 import time
 import urllib2
 import webbrowser
+import os
 from PIL import Image
 
 images_dir = "getmapping"
