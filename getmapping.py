@@ -7,14 +7,14 @@ from PIL import Image
 images_dir = "getmapping"
 # start and end coordinates
 # x from left to right incrementing
-start_x = 440358
-end_x = 448757
+start_x = 343544
+end_x = 344244
 # Testing area
 #end_x = 343744
 
 # x from bottom to top decrement
-start_y = 448626
-end_y = 440438
+start_y = 327094
+end_y = 326294
 # Testing area
 #end_y = 326894
 
