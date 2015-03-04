@@ -8,10 +8,12 @@ images_dir = "getmapping"
 # start and end coordinates
 # x from left to right incrementing
 start_x = 343544
-end_x = 344244
+end_x = 343744
+#end_x = 344244
 # x from top to bottom decrement
 start_y = 327094
-end_y = 326294
+#end_y = 326294
+end_y = 326894
 
 
 x_inc = 100
@@ -28,6 +30,7 @@ rows = 0
 the_counter = 1
 
 def download_images():
+    clear_directory(images_dir)
     global the_counter
     
     if not os.path.exists(images_dir):
@@ -62,15 +65,16 @@ def download_images():
         
         global rows
         rows += 1
-    print rows
-    print cols
     
 def stitch_images():
+    global cols
+    global rows
+    
+    print "There are " + str(cols) + " columns and " + str(rows) + " rows."
+    print str(cols * rows) + " images to stitch"
     # size and grid values
     img_w = 1000
     img_h = 530
-    global cols
-    global rows
     buf = 0 # space between image tiles
     
     # this assumes images are all of size 1800x1800
@@ -104,8 +108,19 @@ def stitch_images():
     
     
     # now that we're done, save the results
-    im2.save(images_dir + "//" + images_dir + ".jpg")
+    im2.save(images_dir + ".jpg")
     print "Created stitched image"
+    
+# Delete all folder contents
+def clear_directory(folder):
+    print "Clearing \"" + folder + "\" directory"
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception, e:
+            print e
     
 if __name__ == "__main__":
     download_images()
