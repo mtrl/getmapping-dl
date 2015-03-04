@@ -6,17 +6,13 @@ from PIL import Image
 images_dir = "getmapping"
 start_x = 343744
 end_x = 344044
-#end_x = 343944
 start_y = 326894
 end_y = 326594
-#end_y = 326794
 
 x_inc = 100
 y_inc = 53
 
 wait = 0.5
-
-image_data = []
 
 url = "https://www2.getmapping.com/Webshop/web/CommonPages/Main/IEDPreview.aspx?Dataset=2012_UK_125mm&ResolutionInMetres=0.1&CentreX=[[X]]&CentreY=[[Y]]"
 
@@ -27,6 +23,9 @@ the_counter = 1
 
 def download_images():
     global the_counter
+    
+    if not os.path.exists(images_dir):
+        os.makedirs(images_dir)
     
     user_agent = 'Mozilla/5 (Solaris 10) Gecko'
     headers = { 'User-Agent' : user_agent }
