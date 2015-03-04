@@ -24,8 +24,8 @@ y_inc = 53
 
 # pause so we don't break stuff
 wait = 0.5
-dataset = 'MillenniumMap'
-#dataset = '2012_UK_125mm'
+#dataset = 'MillenniumMap'
+dataset = '2012_UK_125mm'
 url = "https://www2.getmapping.com/Webshop/web/CommonPages/Main/IEDPreview.aspx?Dataset=" + dataset + "&ResolutionInMetres=0.1&CentreX=[[X]]&CentreY=[[Y]]"
 
 cols = 0
@@ -34,11 +34,8 @@ rows = 0
 the_counter = 1
 
 def download_images():
-    clear_directory(images_dir)
+    setup_dir(images_dir)
     global the_counter
-    
-    if not os.path.exists(images_dir):
-        os.makedirs(images_dir)
     
     user_agent = 'Mozilla/5 (Solaris 10) Gecko'
     headers = { 'User-Agent' : user_agent }
@@ -116,7 +113,10 @@ def stitch_images():
     print "Created stitched image"
     
 # Delete all folder contents
-def clear_directory(folder):
+def setup_dir(folder):
+    if not os.path.exists(folder):
+        print "Creating " + images_dir + " directory"
+        os.makedirs(folder)
     print "Clearing \"" + folder + "\" directory"
     for the_file in os.listdir(folder):
         file_path = os.path.join(folder, the_file)
